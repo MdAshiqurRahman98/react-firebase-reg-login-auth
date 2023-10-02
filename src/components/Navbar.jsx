@@ -45,12 +45,12 @@ const Navbar = () => {
             <div className="navbar-end">
                 {
                     user ? <>
-                        <span className="mr-3">{user.email}</span>
+                        <span className="mr-1">{user.email}</span>
                         <span className="mr-3">{user.displayName}</span>
-                        <a onClick={handleLogOut} className="btn btn-sm mr-1">Logout</a>
+                        <a onClick={handleLogOut} className="btn btn-sm mr-3 normal-case">Logout</a>
                     </> 
                     : <Link to="/login">
-                        <button className="btn btn-sm mr-1">Login</button>
+                        <button className="btn btn-sm mr-3 normal-case">Login</button>
                     </Link>
                 }
                 
