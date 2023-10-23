@@ -1,11 +1,11 @@
 import { Outlet } from "react-router-dom";
-import Navbar from "./Navbar";
+import Nav_Bar from "./Nav_Bar";
 
 
 const Root = () => {
     return (
-        <div>
-            <Navbar></Navbar>
+        <div className="max-w-screen-xl mx-auto min-h-screen px-3 md:px-3 lg:px-5 py-3 mb-7">
+            <Nav_Bar></Nav_Bar>
             <Outlet></Outlet>
         </div>
     );
