@@ -1,13 +1,13 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
-
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
-
     const { createUser } = useContext(AuthContext);
-
-
+    const location = useLocation();
+    const navigate = useNavigate();
+    console.log('Location in the register page', location);
 
     const handleRegister = e => {
         e.preventDefault();
@@ -16,10 +16,20 @@ const Register = () => {
         const password = e.target.password.value;
         console.log(name, email, password);
 
-        // create user in firebase
+        // Create user in firebase
         createUser(email, password)
             .then(result => {
-                console.log(result.user)
+                console.log(result.user);
+
+                updateProfile(result.user, {
+                    displayName: name
+                })
+                    .then(() => console.log('Profile updated'))
+                    .catch(error => {
+                        console.error(error);
+                    })
+
+                navigate(location?.state ? location.state : '/');
             })
             .catch(error => {
                 console.error(error);
