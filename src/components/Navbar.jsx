@@ -1,16 +1,17 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
-
+import { useTheme } from "../hooks/useTheme";
+import { BsSun, BsMoon } from 'react-icons/bs';
 
 const Navbar = () => {
-
     const { user, logOut } = useContext(AuthContext);
+    const { changeTheme, mode } = useTheme();
 
-    const handleLogOut = () =>{
+    const handleLogOut = () => {
         logOut()
-        .then(() => console.log('User logged out successfully'))
-        .catch(error => console.error (error))
+            .then(() => console.log('User logged out successfully'))
+            .catch(error => console.error(error))
     }
 
     const navLinks = <>
@@ -18,7 +19,7 @@ const Navbar = () => {
         <li><NavLink to="/login">Login</NavLink></li>
         <li><NavLink to="/register">Register</NavLink></li>
         <li><NavLink to="/orders">Orders</NavLink></li>
-        { user && <>
+        {user && <>
             <li><NavLink to="/profile">Profile</NavLink></li>
             <li><NavLink to="/dashboard">Dashboard</NavLink></li>
         </>}
@@ -36,6 +37,11 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <a className="btn btn-ghost normal-case text-xl">React with Firebase Authentication</a>
+                <span onClick={changeTheme} className="text-xl ml-1 lg:ml-5">
+                    {
+                        mode === 'dark' ? <BsSun className="text-white"></BsSun> : <BsMoon className="text-black"></BsMoon>
+                    }
+                </span>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -48,12 +54,12 @@ const Navbar = () => {
                         <span className="mr-1">{user.email}</span>
                         <span className="mr-3">{user.displayName}</span>
                         <a onClick={handleLogOut} className="btn btn-sm mr-3 normal-case">Logout</a>
-                    </> 
-                    : <Link to="/login">
-                        <button className="btn btn-sm mr-3 normal-case">Login</button>
-                    </Link>
+                    </>
+                        : <Link to="/login">
+                            <button className="btn btn-sm mr-3 normal-case">Login</button>
+                        </Link>
                 }
-                
+
             </div>
         </div>
     );

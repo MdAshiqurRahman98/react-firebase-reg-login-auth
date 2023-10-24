@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
+import { useTheme } from "../hooks/useTheme";
+import { BsSun, BsMoon } from 'react-icons/bs';
 
 const Navbar = () => {
-
     const { user, logOut } = useContext(AuthContext);
+    const { changeTheme, mode } = useTheme();
 
     const handleLogOut = () => {
         logOut()
@@ -68,6 +70,11 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <a className="btn btn-ghost normal-case text-xl hidden lg:contents">React with Firebase Authentication</a>
+                <span onClick={changeTheme} className="text-xl ml-1 lg:ml-5">
+                    {
+                        mode === 'dark' ? <BsSun className="text-white"></BsSun> : <BsMoon className="text-black"></BsMoon>
+                    }
+                </span>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="flex text-lg">
