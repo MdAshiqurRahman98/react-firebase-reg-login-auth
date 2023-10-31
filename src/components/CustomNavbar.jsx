@@ -4,7 +4,7 @@ import { AuthContext } from "../providers/AuthProvider";
 import { useTheme } from "../hooks/useTheme";
 import { BsSun, BsMoon } from 'react-icons/bs';
 
-const Navbar = () => {
+const CustomNavbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const { changeTheme, mode } = useTheme();
 
@@ -106,4 +106,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default CustomNavbar;

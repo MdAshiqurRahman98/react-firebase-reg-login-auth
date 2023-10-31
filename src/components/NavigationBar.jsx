@@ -3,7 +3,7 @@ import useAuth from "../../../hooks/useAuth";
 // import { BsSun, BsMoon } from 'react-icons/bs';
 // import { useTheme } from "../../../hooks/useTheme";
 
-const Navbar = () => {
+const NavigationBar = () => {
     const { user, logOut } = useAuth();
     // const { changeTheme, mode } = useTheme();
 
@@ -135,4 +135,4 @@ const Navbar = () => {
     );
 };
 
-export default Navbar;
+export default NavigationBar;
