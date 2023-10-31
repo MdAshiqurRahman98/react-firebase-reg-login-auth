@@ -15,7 +15,7 @@ const Navbar = () => {
     }
 
     const navLinks = <>
-        <li className="mt-2"><NavLink to="/" className={({ isActive, isPending }) =>
+        <li className="mt-2 text-lg"><NavLink to="/" className={({ isActive, isPending }) =>
             isPending
                 ? "pending"
                 : isActive
@@ -23,7 +23,7 @@ const Navbar = () => {
                     : ""
         }>Home</NavLink></li>
 
-        <li className="mt-2 lg:ml-5"><NavLink to="/orders" className={({ isActive, isPending }) =>
+        <li className="mt-2 lg:ml-5 text-lg"><NavLink to="/orders" className={({ isActive, isPending }) =>
             isPending
                 ? "pending"
                 : isActive
@@ -31,7 +31,7 @@ const Navbar = () => {
                     : ""
         }>Orders</NavLink></li>
 
-        <li className="mt-2 lg:ml-5"><NavLink to="/aboutUs" className={({ isActive, isPending }) =>
+        <li className="mt-2 lg:ml-5 text-lg"><NavLink to="/aboutUs" className={({ isActive, isPending }) =>
             isPending
                 ? "pending"
                 : isActive
@@ -40,7 +40,7 @@ const Navbar = () => {
         }>About Us</NavLink></li>
 
         {user && <>
-            <li className="mt-2 lg:ml-5"><NavLink to="/profile" className={({ isActive, isPending }) =>
+            <li className="mt-2 lg:ml-5 text-lg"><NavLink to="/profile" className={({ isActive, isPending }) =>
                 isPending
                     ? "pending"
                     : isActive
@@ -48,7 +48,7 @@ const Navbar = () => {
                         : ""
             }>Profile</NavLink></li>
 
-            <li className="my-2 lg:ml-5"><NavLink to="/dashboard" className={({ isActive, isPending }) =>
+            <li className="my-2 lg:ml-5 text-lg"><NavLink to="/dashboard" className={({ isActive, isPending }) =>
                 isPending
                     ? "pending"
                     : isActive
@@ -69,7 +69,7 @@ const Navbar = () => {
                         {navLinks}
                     </ul>
                 </div>
-                <figure className="hidden lg:contents"><img className="w-[300px] h-[150px] -ml-11 mt-2" src="https://i.ibb.co/0tFR2j1/Logo.png" alt="Logo" /></figure>
+                <figure className="hidden lg:contents"><img className="w-[257px] h-[150px] -ml-11 mt-2" src="https://i.ibb.co/0tFR2j1/Logo.png" alt="Logo" /></figure>
                 <span onClick={changeTheme} className="text-xl ml-1 lg:ml-5">
                     {
                         mode === 'dark' ? <BsSun className="text-white"></BsSun> : <BsMoon className="text-black"></BsMoon>
